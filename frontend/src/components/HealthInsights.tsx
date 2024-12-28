@@ -58,7 +58,7 @@ export default function HealthInsights() {
     setBmiInfo(bmiData);
 
     try {
-      const response = await fetch('http://localhost:5000/api/gemini', {
+      const response = await fetch('https://health-ml-app-api.vercel.app/api/gemini', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
