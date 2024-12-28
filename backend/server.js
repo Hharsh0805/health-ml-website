@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
+const cors = require('cors');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Load environment variables from .env file
@@ -9,6 +10,13 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Use CORS middleware to allow requests from the frontend domain
+app.use(cors({
+  origin: 'https://health-ml-website.vercel.app', // Allow only your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  credentials: true, // Allow credentials (cookies or authorization headers)
+}));
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
