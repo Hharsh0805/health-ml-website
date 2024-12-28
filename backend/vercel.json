@@ -6,14 +6,14 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
+    "rewrites": [
       {
-        "src": "/api/gemini",
-        "dest": "server.js"
+        "source": "/api/gemini",
+        "destination": "/server.js"
       },
       {
-        "src": "/(.*)",
-        "dest": "server.js"
+        "source": "/(.*)",
+        "destination": "/server.js"
       }
     ],
     "env": {
