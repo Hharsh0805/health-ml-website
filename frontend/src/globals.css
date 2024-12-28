@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Set the default aspect ratio to 16:9 (landscape) */
+.relative {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.relative img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* For screens smaller than 768px (e.g., mobile devices), adjust the aspect ratio */
+@media (max-width: 768px) {
+  .relative {
+    padding-bottom: 75%; /* 4:3 aspect ratio for mobile screens */
+  }
+}
+
+/* For very small screens, we may need to tweak it further */
+@media (max-width: 480px) {
+  .relative {
+    padding-bottom: 100%; /* 1:1 aspect ratio for small mobile screens */
+  }
+}
