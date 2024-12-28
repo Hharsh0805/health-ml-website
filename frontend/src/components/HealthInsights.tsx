@@ -1,6 +1,6 @@
 import { useState, FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Scale } from 'lucide-react';
+import {  Scale } from 'lucide-react';
 
 const calculateBMI = (weight: number, height: number): { bmi: number; category: string } => {
   const heightInMeters = height / 100;
